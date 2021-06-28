@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Single-player Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="singleStyles.css" />
+  </head>
+  <h1 id="header">
+      <!-- The header containing the tackiest image i could find. -->
+    <img id="headerImg" src="/images/Header img.PNG" alt="Tic-Tac-Toe Banner" />
+  </h1>
+  <!-- nav bar with all the places the user could possibly go -->
+  <nav id="nav">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/multi.html">Multi-player</a></li>
+    <li><a href="/single.html">Single-player</a></li>
+  </nav>
+  <body>
+    <!-- the game board. set up with 9 different cells and styled to create he grid effect -->
+    <div id="center">
+      <!-- image to indicate which page the user is on -->
+      <img id="singleplayerImage" src="/images/singeplayer.svg" alt="single player image" />
+      <div id="flexBoard">
+        <div id="board">
+          <div id="block1"></div>
+          <div id="block2"></div>
+          <div id="block3"></div>
+          <div id="block4"></div>
+          <div id="block5"></div>
+          <div id="block6"></div>
+          <div id="block7"></div>
+          <div id="block8"></div>
+          <div id="block9"></div>
+        </div>
+        <div id="buttons">
+          <button>Play</button>
+          <button disabled>Reset</button>
+          <button disabled>Replay</button>
+        </div>
+      </div>
+    </div>
+    <!-- footer containing "relevant" data -->
+    <footer id="footer">
+      <div>Copyright &copy; 2021 BCA Tic-Tac-Toe inc. All rights reserved</div>
+      <div>Contact us at: 823-123-5124 , fakeemail@gmail.com</div>
+    </footer>
+  </body>
+</html>
