@@ -1,0 +1,143 @@
+/* Header */
+/* sanatize margins */
+* {
+  margin: 0;
+}
+/* set header as a flex box and center it */
+#header {
+  margin-bottom: 0;
+  display: flex;
+  height: 20vh;
+  justify-content: center;
+
+  background-color: #a0d2eb;
+}
+/* create a nav bar, evenly space the items within and style them to look better */
+#nav {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  display: flex;
+  justify-content: space-around;
+  background-color: #e5eaf5;
+}
+li {
+  background-color: #d0bdf4;
+  list-style-type: none;
+  border: 1px solid rgb(0, 0, 0);
+}
+/* get rid of the inherent text decoration on hyperlinks */
+a {
+  text-decoration: none;
+}
+/* BODY */
+/* House the entire body of the page in a flex box */
+#center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 70vh;
+  background-color: #8458b3;
+}
+/* create another flexbox for the board to be stored in */
+#flexBoard {
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+  width: 30vw;
+  justify-content: center;
+  align-self: center;
+  /* background-color: green; */
+}
+/* create a grid for the board to be placed in. Put borders on certain items in the grid to make the board lines */
+#board {
+  display: grid;
+  height: 30vh;
+  z-index: 1;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  background-color: #d0bdf4;
+}
+/* styling to get the added text to be larger and centered */
+.blocks {
+  font-size: 50px;
+  text-align: center;
+}
+/* style the individual cells in the grid. Pretty sure they'res a better way to do this. */
+#block1 {
+  border-right: 3px black solid;
+  border-bottom: 3px black solid;
+}
+#block2 {
+  border-bottom: 3px black solid;
+  border-right: 3px black solid;
+}
+#block3 {
+  border-bottom: 3px black solid;
+}
+#block4 {
+  border-bottom: 3px black solid;
+  border-right: 3px black solid;
+}
+#block5 {
+  border-bottom: 3px black solid;
+  border-right: 3px black solid;
+}
+#block6 {
+  border-bottom: 3px black solid;
+}
+#block7 {
+  border-right: 3px black solid;
+}
+#block8 {
+  border-right: 3px black solid;
+}
+/* stlying for the 3 buttons below the grid */
+#buttons {
+  display: flex;
+  padding: 25px;
+  justify-content: space-between;
+  z-index: 1;
+}
+#statusArea {
+  display: flex;
+  justify-content: center;
+  font-family: flix;
+}
+/* styling for the timer */
+#timer {
+  display: flex;
+  align-self: center;
+  height: 5vh;
+  width: 18vw;
+  font-family: flix;
+}
+/* text to denote which page the user is on */
+#singleplayerImage {
+  display: flex;
+  /* used to force the position of the text */
+  position: absolute;
+  left: 10vw;
+  align-self: center;
+  height: 50vh;
+}
+
+#multiplayerImage {
+  position: absolute;
+  /* used to force the position */
+  left: 10vw;
+  display: flex;
+align-self: center;
+  height: 50vh;
+}
+
+/* FOOTER */
+/* footer stlying */
+#footer {
+  width: 100%;
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: space-around;
+  height: 10vh;
+  background-color: #494d5f;
+}

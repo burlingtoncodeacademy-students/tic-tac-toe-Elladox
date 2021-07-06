@@ -1,0 +1,76 @@
+/* HEADER */
+* {
+  margin: 0;
+}
+/* header styling. Used a flexbox to get positioning correct */
+#header {
+  display: flex;
+  height: 20vh;
+  justify-content: center;
+  background-color: #a0d2eb;
+}
+#headerImg {
+  padding: 20px;
+  height: 15vh;
+  width: 80vw;
+}
+/* MAIN BODY */
+/* set up a flexbox as the main body. the outside is set up as rows to get everything lined up side by side */
+#main {
+  display: flex;
+  height: 70vh;
+  align-items  : center;
+  background-color: #8458b3;
+  justify-content: center;
+}
+/* IMAGES */
+#singleImg {
+  width: 15vw;
+  height: 15vh;
+}
+#multiImg {
+  width: 15vw;
+  height: 15vh;
+}
+/* Content */
+
+/* SINGLEPLAYER */
+/* these flex boxes are set up as columns to get the images and text stacking on top of eachother correctly */
+#singleMain {
+  margin: 100px;
+  display: flex;
+  flex-direction: column;
+}
+#singleText {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border: 3px ridge grey;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+/* MULTIPLAYER */
+#multiMain {
+  margin: 100px;
+  display: flex;
+  flex-direction: column;
+}
+#multiText {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border: 3px ridge grey;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+/* stlying for the footer */
+#footer {
+  width: 100%;
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 10vh;
+  background-color: #494d5f;
+}
+/* 
+
