@@ -16,6 +16,7 @@ let seconds = 0;
 blockState = [``, ``, ``, ``, ``, ``, ``, ``, ``];
 let gameOver = false;
 let drawOver = false;
+let pcWon = false;
 /* set up a lookup array with all the possible winning sequences in ti */
 let winCons = [
   [0, 1, 2],
@@ -41,22 +42,26 @@ function resultValidation() {
     if (itemOne === `` || itemTwo === `` || itemThree === ``) {
       return;
       /* if all three items are equal to eachother then a player has won and the global variable used to check the ending of the game is changed to true  */
-    } else if (!blockState.includes(``)) {
-      drawOver = true;
     } else if (
       //since the player is always X, can specify what to do when they win
       itemOne === `X` &&
-      itemOne === itemTwo &&
-      itemTwo === itemThree
+      itemTwo === "X" &&
+      itemThree === "X"
     ) {
       gameOver = true;
+      return
     } else if (
       //since the PC is always player O, do somthing different when they win
       itemOne === `O` &&
-      itemOne === itemTwo &&
-      itemTwo === itemThree
+      itemOne === `O` &&
+      itemTwo === `O`
     ) {
-      window.alert(`computer wins`);
+      console.log(`pc wins`)
+      pcWon = true;
+      return
+    } else if (!blockState.includes(``)) {
+      drawOver = true;
+      return
     }
   });
 }
@@ -71,14 +76,20 @@ function gameTime() {
 }
 //function for the PC's move
 function computerMove() {
-  let possibleMoves = blockArr;
-  let pcMove = possibleMoves[Math.floor(Math.random() * 8)];
-  //This is meant to prevent it going into a cell thats been clicked, but it doesnt work.
-  while (pcMove.hasAttribute(`clicked`) === true) {
-    pcMove = possibleMoves[Math.floor(Math.random() * 8)];
-
-    break;
+  //dont let the pc move if the game is over
+  if (gameOver === true) {
+    return;
   }
+ 
+  let filteredMoves = blockArr.filter(
+    (move) => !move.hasAttribute(`clicked`)
+  );
+  console.log(`The following is filtered moves:`);
+  console.log(filteredMoves);
+  if (filteredMoves.length === 0) {
+    return;
+  }
+  let pcMove = filteredMoves[Math.floor(Math.random() * filteredMoves.length)];
   pcMove.setAttribute(`clicked`, true);
   console.log(pcMove);
   /* Puts tan O into the clicked block.*/
@@ -132,9 +143,8 @@ function clickBlock(evt) {
   let blockIndex = parseInt(evt.target.getAttribute(`number`));
   blockState[blockIndex] = `X`;
 
-  resultValidation();
-
   computerMove();
+  resultValidation();
   if (drawOver === true && gameOver === false) {
     statusArea.textContent = `Its a Draw!`;
     clearInterval(timeId);
@@ -142,13 +152,13 @@ function clickBlock(evt) {
       block.setAttribute(`disabled`, `true`);
     });
   } else if (gameOver === true && evt.target.textContent === `X`) {
-    statusArea.textContent = `Congratulations Player X wins!`;
+    statusArea.textContent = `Congratulations You Win!`;
     /* clear the timer */
     clearInterval(timeId);
     blockArr.forEach((block) => {
       block.setAttribute(`disabled`, `true`);
     });
-  } else if (gameOver === true) {
+  } else if (pcWon === true) {
     statusArea.textContent = `Sorry Player, the PC wins!`;
     clearInterval(timeId);
     blockArr.forEach((block) => {
