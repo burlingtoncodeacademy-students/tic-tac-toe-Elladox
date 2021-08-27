@@ -51,12 +51,13 @@ function resultValidation() {
       gameOver = true;
       return
     } else if (
-      //since the PC is always player O, do somthing different when they win
+      //since the PC is always player O, do something different when they win
       itemOne === `O` &&
-      itemOne === `O` &&
-      itemTwo === `O`
+      itemTwo === `O` &&
+      itemThree === `O`
     ) {
       console.log(`pc wins`)
+      console.log(item)
       pcWon = true;
       return
     } else if (!blockState.includes(``)) {
